@@ -1,0 +1,74 @@
+@use './variables.scss';
+@use './login.scss';
+@use './heartCont.scss';
+@use './haiku.scss';
+@use './editbuttons.scss';
+@use './loading.scss';
+
+
+
+* {
+  box-sizing: border-box;
+  transition: .2s;
+}
+
+html,
+body {
+  background-color: var(--color-base);
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+main.mainBody {
+  background-color: black;
+  max-width: var(--width-cont);
+  margin: 0 auto;
+}
+
+section {
+  padding: 1em;
+  margin: 1em 0;
+  background-color: var(--color-bg);
+}
+
+a {
+  /* color: inherit; */
+  color: var(--color-highlight)
+    /* text-decoration: none; */
+}
+
+a:hover {
+  color: cadetblue;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+// TODO make btn--inline btn--big btn--mid
+.btn {
+  background-color: transparent;
+  border: solid 1px var(--color-highlight);
+  border-radius: 3px;
+  padding: 0 .8rem;
+  text-decoration: none;
+
+  &:hover {
+    background-color: var(--color-highlight);
+    color: black;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    color: white;
+    background: black;
+  }
+}

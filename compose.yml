@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+
+  mongo:
+    restart: unless-stopped
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=pinkm0nG0user
+      - MONGO_INITDB_ROOT_PASSWORD=69#gHkdf2!&8ob^57
+      - MONGO_INITDB_DATABASE=auth
+    volumes:
+      - ./database/mongo-db:/data/db
+    networks:
+      - nextlove-network
+
+  # nginx built inside
+  nextlove-app:
+    image: docker-nextlove
+    restart: unless-stopped
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - 4040:3000 # because nginx is inside this container too
+    environment:
+      - MONGO_URI=mongo
+      - MONGO_PORT=27017
+      - MONGO_COLLECTION=pinkinc
+      - MONGO_USER=pinkm0nG0user
+      - MONGO_PASSWORD=69#gHkdf2!&8ob^57
+
+      # PROVIDERS
+      - GITHUB_ID=
+      - GITHUB_SECRET=
+      - FACEBOOK_ID=
+      - FACEBOOK_SECRET=
+
+      - NEXTAUTH_URL=https://pinkinc.williamusic.com
+    depends_on:
+      - mongo
+    networks:
+      - nextlove-network
+      # add to ngnix-prox-mgmt network
+
+networks:
+  nextlove-network:
+    driver: bridge
+
+volumes:
+  mongo-db:

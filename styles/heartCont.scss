@@ -1,0 +1,74 @@
+.scoreboard {
+  display: flex;
+  flex-wrap: wrap;
+
+  .user {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+
+    h3 {
+      margin-right: .3rem;
+    }
+  }
+}
+
+.heart-cont {
+
+  border: solid white 2px;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-bottom: 1em;
+
+  .totalHeartsCount{
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+  }
+
+  .btn-cont{
+    position: relative;
+
+    .btn-heart {
+      background-color: var(--color-highlight);
+      border: solid white 3px;
+      border-radius: 30px;
+      padding: 1em;
+      position: absolute;
+      top: 10%;
+      right: 10%;
+      transition: .01s;
+      position: relative;
+  
+      &:hover {
+        background-color: white;
+        color: var(--color-highlight);
+      }
+  
+      &:active {
+        background-color: var(--color-highlight);
+        border: solid var(--color-highlight) 3px;
+        transform: scale(.9);
+      }
+  
+      svg {
+        font-size: 50px;
+  
+      }
+    }
+  
+    .btn--eyecandy{
+      position: absolute;
+      transition: .01s;
+      
+      svg{
+        font-size: 20px;
+      }
+    } 
+  }
+
+}

@@ -1,0 +1,12 @@
+Dockerfile
+**/Dockerfile
+Dockerfile.dev
+.dockerignore
+**/node_modules
+node_modules
+.git
+.gitignore
+npm-debug.log
+.next
+.env.dev
+.env.prod

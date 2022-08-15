@@ -1,0 +1,54 @@
+version: '3'
+
+services:
+
+  mongo:
+    restart: unless-stopped
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=
+      - MONGO_INITDB_ROOT_PASSWORD=
+      - MONGO_INITDB_DATABASE=auth
+    volumes:
+      - ./database/mongo-db:/data/db
+    networks:
+      - nexthearts-network
+
+
+  nexthearts-app:
+    image: docker-nextjs
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 4040:80 # because nginx is inside this container too
+    environment:
+
+      - MONGO_URI=
+      - MONGO_PORT=
+      - MONGO_COLLECTION=
+      - MONGO_USER=
+      - MONGO_PASSWORD=
+
+      # PROVIDERS
+      - GITHUB_ID=
+      - GITHUB_SECRET=
+
+      - FACEBOOK_ID=
+      - FACEBOOK_SECRET=
+    depends_on:
+      - server
+    networks:
+      - nexthearts-network
+      - nginx-prox-mgmt-3_default
+      # add to ngnix-prox-mgmt network
+
+networks:
+  nexthearts-network:
+    driver: bridge
+  nginx-prox-mgmt-3_default: # so we can call service by DNS
+    driver: bridge
+
+volumes:
+  mongo-db:

@@ -1,0 +1,39 @@
+{
+  "name": "pinkinc-client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "chart.js": "^3.9.1",
+    "formik": "^2.2.9",
+    "jose": "^4.8.3",
+    "mongoose": "^6.5.0",
+    "next": "12.2.3",
+    "next-auth": "^4.10.3",
+    "nodemailer": "^6.7.7",
+    "react": "18.2.0",
+    "react-chartjs-2": "^4.3.1",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
+    "react-spring": "^9.5.2",
+    "react-table": "^7.8.0",
+    "sass": "^1.54.0",
+    "styled-components": "^5.3.5",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@types/node": "18.6.1",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
+    "babel-plugin-styled-components": "^2.0.7",
+    "eslint": "8.20.0",
+    "eslint-config-next": "12.2.3",
+    "typescript": "4.7.4"
+  }
+}
