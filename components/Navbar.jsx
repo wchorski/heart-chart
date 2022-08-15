@@ -19,7 +19,6 @@ export const Navbar = () => {
       <div className="nav-bg-main">
         <nav className="main">
           <ul>
-            <li key={1}> <LinkActive name={'Home'} href={'/'}/></li>
             <li key={2}> <LinkActive name={'Hearts'} href={'/hearts'}/></li>
             <li key={3}> <LinkActive name={'Register'} href={'/register'}/></li>
 

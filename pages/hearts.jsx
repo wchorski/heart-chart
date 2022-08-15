@@ -234,7 +234,7 @@ export default function Love({ allUsers }) {
                 )}
 
                 {status === "unauthenticated" && (
-                  <h2> *Must be logged <br /> in to add Love </h2>
+                  <h2> *Must be logged <br /> in to add Hearts </h2>
                 )}
 
               </div>
