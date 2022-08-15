@@ -38,12 +38,9 @@ export default async function usersByID(req, res) {
     res.status(401).json({status: "unauthorized", message: "must have an account"})
     return
   }
-  if(!session.user.roles.admin){
-    res.status(401).json({status: "unauthorized", message: "must have admin privileges"})
-    return
-  }
 
-  if(session.user.roles.admin === ROLES_LIST.admin){
+  // TODO don't give subscribers permission to update all of users stuff
+  if(session.user.roles.admin === ROLES_LIST.admin || session.user.roles.editor === ROLES_LIST.editor || session.user.roles.subscriber === ROLES_LIST.subscriber){
     if (req.method === 'PATCH') {
 
       try {
@@ -66,6 +63,11 @@ export default async function usersByID(req, res) {
         console.error(err);
         res.status(400).json({ status: 'failed to update post', message: err.toString() })
       }
+    }
+
+    if(!session.user.roles.admin){
+      res.status(401).json({status: "unauthorized", message: "must have admin privileges"})
+      return
     }
 
     if (req.method === 'DELETE') {

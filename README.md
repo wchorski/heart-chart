@@ -61,4 +61,5 @@ Live website 🖱
 ## 🌠 Wishlist 
 - add CORs in auth
 - client side validation for strong passwords
+- /pages/api/users/[id].js -- Don't give users permission to PATCH all user info
 <br>
