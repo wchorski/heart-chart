@@ -15,9 +15,9 @@ import { unstable_getServerSession } from "next-auth/next"
 
 export default async function usersByID(req, res) {
 
-  console.log(req.method);
+  // console.log(req.method);
+
   if (req.method === 'GET') {
-    // console.log("* method GET === " + req.method)
     try {
       await connectDB()
 
@@ -45,7 +45,7 @@ export default async function usersByID(req, res) {
 
   if(session.user.roles.admin === ROLES_LIST.admin){
     if (req.method === 'PATCH') {
-      console.log("* method PATCH === " + req.method)
+
       try {
         await connectDB()
 
@@ -69,7 +69,7 @@ export default async function usersByID(req, res) {
     }
 
     if (req.method === 'DELETE') {
-      console.log("* method DELETE === " + req.method)
+
       try {
         await connectDB()
 

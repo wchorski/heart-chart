@@ -12,9 +12,7 @@ export default async function addUser(req, res) {
   try {
     const { email, name, password, color } = req.body
 
-    // console.log('-- connecting to mongo --');
     await connectDB()
-    // console.log('-- CONNECTED to mongo --');
 
     const hashedPwd = await bcrypt.hash(password, 10);
 
@@ -25,12 +23,9 @@ export default async function addUser(req, res) {
       "color": color,
       "password": hashedPwd
     });
+    console.log('newUser created: ');
     console.log(newUser);
 
-    // console.log('-- users/add.js --')
-    // const newModel = await Model.create(newUser) 
-    // console.log(req.body)
-    // console.log('-- -- -- -- -- -- ')
 
     res.status(201).json({ success: true, message: `new user create: ${newUser}` })
 

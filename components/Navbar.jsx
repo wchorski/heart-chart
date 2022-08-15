@@ -20,7 +20,7 @@ export const Navbar = () => {
         <nav className="main">
           <ul>
             <li key={1}> <LinkActive name={'Home'} href={'/'}/></li>
-            <li key={2}> <LinkActive name={'Love'} href={'/love'}/></li>
+            <li key={2}> <LinkActive name={'Hearts'} href={'/hearts'}/></li>
             <li key={3}> <LinkActive name={'Register'} href={'/register'}/></li>
 
             {session && session.user.roles.admin === ROLES_LIST.admin && (

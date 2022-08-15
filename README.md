@@ -1,4 +1,4 @@
-#  💙 💚 next-hearts 💛 💜 🧡
+#  🧡 💙 💚 heart-chart 💛 💜 🧡
 cute app to make affection into a competition  
 <a href="https://github.com/wchorski/next-hearts/blob/main/config/defaultUsers.json"> Default User Login Cred </a>
 
@@ -29,21 +29,24 @@ cute app to make affection into a competition
 <br>
 
 ## ⚙ Dev Env 
-0. `git clone`
+0. install npm & MongoDB Community
+0. `git clone` this repo
 0. `cp ./.env.dev` to `./.env` 
 0. `npm i`
 0. `npm run dev`
 <br>
 
 ## 🚂 Prod Env 
-0. `git clone`
+0. install Docker
+0. `git clone` this repo
 0. `cp ./.compose.prod.yml` to `./.compose.yml` 
-0. `sh ./prod.sh`
+0. `docker compose up -d --build` or use my shell command `sh ./prod.sh`
 <br>
 <br>
 
 ## 🌠 Wishlist 
 - fix mobile screen jerk on mobile button press
 - add CORs in auth
+- client side validation for strong passwords
 <br>
 <br>

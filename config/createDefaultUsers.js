@@ -3,7 +3,7 @@
  * @param {import('next').NextApiResponse} res
  */
 
-import connectDB from '../db/connection'
+
 import Model from '../models/user'
 import fakeData from './defaultUsers.json'
 const bcrypt = require('bcrypt');

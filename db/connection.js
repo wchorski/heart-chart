@@ -21,6 +21,7 @@ const connectDB = async () => {
 
     console.log('-- Connected to MongoDB -- ')
 
+    // TODO don't call this on every DB connection
     createDefaultUsers()
 
   } catch (err) {

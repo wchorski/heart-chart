@@ -10,15 +10,17 @@ import React, { useEffect, useState, useRef } from 'react'
 import { useSession } from "next-auth/react"
 
 import { useTransition, animated } from 'react-spring'
-import { AiOutlineHeart } from 'react-icons/ai'
+import { AiOutlineHeart, AiFillGithub } from 'react-icons/ai'
 import { RiHeartAddLine } from 'react-icons/ri'
 
 import { Icon } from '../components/Icon'
 import { Navbar } from '../components/Navbar'
+import { Footer } from '../components/Footer'
 // import { Login } from '../components/Login'
 // import { Register } from '../components/RegisterForm'
 import { HeartChart } from '../components/HeartChart'
 import { Loading } from '../components/Loading'
+import Link from 'next/link'
 
 
 
@@ -56,10 +58,10 @@ export default function Love({ allUsers }) {
 
   const [isEyeCandy, setisEyeCandy] = useState(false)
   const transpring = useTransition(isEyeCandy, {
-    config: {mass:.3, tension:900, friction:30},
-    from: {x: 0, y: 50,   opacity: 0.1},
-    enter: {x: 0,   y: 0,     opacity: 1.0},
-    leave: {x: 0, y: -50,  opacity: 0.1},
+    config: {mass: .3, tension:900, friction:30},
+    from:  {x: 0, y: 30,   color: session?.user.color},
+    enter: {x: 0, y: 0,    color: 'white'},
+    leave: {x: 0, y: -30,  color: 'white'},
   })
 
 
@@ -126,7 +128,8 @@ export default function Love({ allUsers }) {
     }
 
     return () => {
-      console.log('return');
+      // console.log('return');
+      null
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -135,7 +138,8 @@ export default function Love({ allUsers }) {
   useEffect(() => {
 
     return () => {
-      console.log('return');
+      // console.log('return');
+      null
     }
   }, [usersState, allUsers])
 
@@ -148,7 +152,8 @@ export default function Love({ allUsers }) {
     }
 
     return () => {
-      console.log('return');
+      // console.log('return');
+      null
     }
   }, [session, usersState])
 
@@ -156,24 +161,25 @@ export default function Love({ allUsers }) {
   return (
     <>
       <Navbar />
-      {/* <Login /> */}
-      {/* <Register /> */}
 
-
-          <main className='mainBody'>
+      <main className='mainBody'>
 
         <section>
-          <div className="haiku">
-            <p>
-              Friends forever in time
-            </p>
-            <p>
-              Bonded by our hearts and souls
-            </p>
-            <p>
-              Love forever lasting!
-            </p>
-            <a href="https://www.familyfriendpoems.com/collection/love-haiku-poems/">- Sandy Maloof </a>
+          <div>
+            <Link href={`https://github.com/wchorski/heart-chart`}>
+              <a>
+                <AiFillGithub />
+                Github Repo
+              </a>
+            </Link>
+          </div>
+          <div>
+            <Link href={`https://github.com/wchorski/heart-chart/blob/main/config/defaultUsers.json`}>
+              <a>
+                <AiFillGithub />
+                Default Login Creds
+              </a>
+            </Link>
           </div>
         </section>
 
@@ -217,13 +223,11 @@ export default function Love({ allUsers }) {
                     >
                       <RiHeartAddLine />
                     </button>
-
-                    {/* <span className={`btn--eyecandy ${isEyeCandy ? 'active' : ''}`}><RiHeartAddLine /></span> */}
                     
                     {/* // TODO Animate  */}
                     {transpring((style, item) =>
                       item 
-                        ? <animated.span className={`btn--eyecandy`} style={{color: session?.user.color, ...style}} > <AiOutlineHeart /> </animated.span>
+                        ? <animated.span className={`btn--eyecandy`} style={{...style}} > + <AiOutlineHeart /> </animated.span>
                         : ''
                     )}
                   </div>
@@ -240,6 +244,8 @@ export default function Love({ allUsers }) {
         </section>
 
       </main>
+
+      <Footer />
     </>
   )
 }

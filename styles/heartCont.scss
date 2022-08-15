@@ -31,7 +31,9 @@
   }
 
   .btn-cont{
-    position: relative;
+    position: absolute;
+    bottom: 5%;
+    right: 10%;
 
     .btn-heart {
       background-color: var(--color-highlight);
@@ -63,7 +65,10 @@
   
     .btn--eyecandy{
       position: absolute;
+      top: 0;
+      right: -10%;
       transition: .01s;
+      z-index: 100000;
       
       svg{
         font-size: 20px;

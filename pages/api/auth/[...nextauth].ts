@@ -65,7 +65,6 @@ export const authOptions: NextAuthOptions = {
 
         const match = await bcrypt.compare(credentials.password, foundUser.password)
 
-        console.log();
 
         if (credentials.email === foundUser.email && match) {
           return {
@@ -89,8 +88,10 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     jwt: async ({ token, user }: any) => {
-      console.log(user);
       if (user) {
+        // console.log('JWT created for:');
+        // console.log(user);
+        
         token.id = user.id,
         token.color = user.color
         token.roles = user.roles
