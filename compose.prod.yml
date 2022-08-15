@@ -15,14 +15,14 @@ services:
       - nexthearts-network
 
 
-  nexthearts-app:
+  app:
     image: docker-nextjs
     restart: unless-stopped
     build:
       context: ./
       dockerfile: Dockerfile
     ports:
-      - 4040:80 # because nginx is inside this container too
+      - 4040:80 
     environment:
 
       - MONGO_URI=

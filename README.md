@@ -1,5 +1,6 @@
 #  💙 💚 next-hearts 💛 💜 🧡
 cute app to make affection into a competition  
+<a href="https://github.com/wchorski/next-hearts/blob/main/config/defaultUsers.json"> Default User Login Cred </a>
 
 ## 💽 Tech
 - NextJs w/ typescript
@@ -43,5 +44,6 @@ cute app to make affection into a competition
 
 ## 🌠 Wishlist 
 - fix mobile screen jerk on mobile button press
+- add CORs in auth
 <br>
 <br>

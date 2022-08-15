@@ -1,3 +1,7 @@
+database
+database/*
+compose.yml
+
 # Logs
 logs
 *.log
